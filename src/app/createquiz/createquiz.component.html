@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container">
+  <div class="box">
+    <h1 class="g">Create Quiz </h1>
+    <div class="topnav" id="myTopnav">
+      <div class="active nav">
+        <a (click)="quizdesc()">Quiz</a>
+      </div>
+      <div class="nav">
+        <a (click)="questions()">Questions</a>
+      </div>
+      <div class="nav">
+        <a (click)="preview()">Preview</a>
+      </div>
+
+    </div>
+
+    <div *ngIf="quizdescshow;">
+      <app-quizdesc (messageEvent)="questions()"></app-quizdesc>
+    </div>
+
+    <div *ngIf="questionshow;">
+      <app-questions></app-questions>
+    </div>
+    <div *ngIf="previewshow;">
+      <app-preview></app-preview>
+    </div>
+
+  </div>
+</div>

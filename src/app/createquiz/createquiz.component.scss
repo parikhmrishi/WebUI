@@ -1,0 +1,47 @@
+
+.g{ 
+    
+    text-align: left;
+    display: inline-block;
+   
+    margin-left:30px;
+    color: #8877c9;
+}
+
+
+.topnav {
+    background-color: #EFEFEF;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    display: inline-block;
+    color: #000;
+    text-align: center;
+    padding: 14px 12%;
+   // padding-left: 10%;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    color: #8b5ec5;
+    border-bottom: 0.5rem solid #8b5ec5;
+  }
+  
+  /* Add an active class to highlight the current page */
+  
+  .box{
+    //padding: 1rem 0;
+    box-shadow: 0px 1px 7px 0px gray;
+} 
+.container {
+    width:200%;
+    padding-top: 1.5rem;
+}
+
+.nav {
+  display: inline;
+}

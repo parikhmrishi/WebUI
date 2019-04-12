@@ -1,0 +1,37 @@
+<form [formGroup]="form">
+	<!-- X -->
+	<div formArrayName="Questions">
+		<div *ngFor="let Question of form['controls'].Questions['controls']; let ix=index">
+			<div formGroupName="{{ix}}" class="Questions">
+				<input type="text" placeholder="Enter question" formControlName="Question">
+				<select (change)="selectChange($event)">
+					<option name="mcq">MCQ</option>
+					<!-- <option name ="maq">MAQ</option> -->
+				</select>
+				<div formArrayName="Options">
+					<div *ngFor="let Y of Question['controls'].Options['controls']; let iy=index">
+						<div formGroupName="{{iy}}" class="Options">
+							<input type="radio" *ngIf="Qtype" name="option" />
+							<input type="checkbox" *ngIf="!Qtype" name="option" />
+							<input type="text" placeholder="Enter option" formControlName="Option">
+							<button class="btn" (click)="RemoveY(iy)"><i class="fa fa-trash"></i></button> 
+							<!-- <input type="button" (click)="addY(ix)" value="Add Option"> -->
+							<!-- <input type="button" (click)="RemoveY(ix)" value="Remove Option"> -->
+							<button class="btn" (click)="addY(ix)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+						</div>
+					</div>
+
+				</div>
+
+				<input type="button" (click)="RemoveX(ix)" value="Remove Question">
+			</div>
+			
+		</div>
+		<input type="button" (click)="addX()" value="Add Question">
+	</div>
+
+	<form>
+
+		<h5>Field Values</h5>
+		<pre style="font-size:15px">{{ form.value | json }}</pre>

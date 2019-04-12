@@ -1,0 +1,18 @@
+<div id="container">
+
+  <img src="../assets/trivialogo.jpeg" alt="trivialogo" id="image">
+  <button type="button" id="btn_property" class="btn btn-primary" (click)="createquiz()">Create Quiz</button>
+
+  <form action="/action_page.php" class="search-container">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <div class="c2" (click)="displaysidemenu()">
+    <div class="c1"></div>
+    <div class="c1"></div>
+    <div class="c1"></div>
+  </div>
+  <div *ngIf="sidemenu;" class="inline-fix">
+    <app-sidemenu></app-sidemenu>
+  </div>
+</div>
