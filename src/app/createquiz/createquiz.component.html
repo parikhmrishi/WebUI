@@ -3,20 +3,20 @@
   <div class="box">
     <h1 class="g">Create Quiz </h1>
     <div class="topnav" id="myTopnav">
-      <div class="active nav">
-        <a (click)="quizdesc()">Quiz</a>
+      <div class="nav" >
+        <a classs="active" (click)="quizdescription()" [ngClass]="statusQuiz ? 'active' : 'notActive'">Quiz</a>
       </div>
       <div class="nav">
-        <a (click)="questions()">Questions</a>
+        <a (click)="questions()" [ngClass]="statusQuestion ? 'active' : 'notActive'">Questions</a>
       </div>
       <div class="nav">
-        <a (click)="preview()">Preview</a>
+        <a (click)="preview()" [ngClass]="statusPreview ? 'active' : 'notActive'">Preview</a>
       </div>
 
     </div>
 
-    <div *ngIf="quizdescshow;">
-      <app-quizdesc (messageEvent)="questions()"></app-quizdesc>
+    <div *ngIf="quizdescriptionshow;">
+      <app-quizdesc></app-quizdesc>
     </div>
 
     <div *ngIf="questionshow;">

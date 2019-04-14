@@ -17,12 +17,10 @@ EndDate:Date;
 
 public quiz : Quiz= {} as Quiz
 
-@Output() messageEvent = new EventEmitter<boolean>();
-
 
 public addquestions()
 {
-  this.messageEvent.emit();
+
 }  
   constructor(private quizService : QuizService) { }
 
@@ -48,7 +46,7 @@ public addquestions()
     if(!(this.quiz.startDate < this.quiz.endDate))
     alert("End date should be greater than start date");
     console.log(this.quiz);
-    this.quizService.PostQuizDetails(this.quiz).subscribe(()=>this.messageEvent.emit());
+    this.quizService.PostQuizDetails(this.quiz).subscribe((res)=>console.log("res"));
 
   } 
 

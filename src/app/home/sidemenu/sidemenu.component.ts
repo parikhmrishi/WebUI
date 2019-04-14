@@ -9,6 +9,9 @@ import { AuthService } from 'angularx-social-login';
 })
 export class SidemenuComponent implements OnInit {
 
+  events: string[] = [];
+  opened: boolean;
+  
   constructor(private authService: AuthService,private router:Router) { }
   signOut() {
     this.authService.signOut().then(() => {
@@ -17,6 +20,7 @@ export class SidemenuComponent implements OnInit {
     });
     
   }
+  
 
   ngOnInit() {
   }

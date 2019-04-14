@@ -8,8 +8,8 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 })
 export class QuestionsComponent implements OnInit {
   form: FormGroup;
-  Qtype:boolean=true;
-  loadComponent:boolean
+  Qtype: boolean = true;
+  loadComponent: boolean
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -18,15 +18,17 @@ export class QuestionsComponent implements OnInit {
       ])
     });
     console.log(this.form.value);
-    // selectChange(event:any)
-    // {
-    //   if(event.target.value === "mcq")
-    //   this.Qtype= true;
-    //   this.Qtype= false;
-    // }
-    // this.form.valueChanges.subscribe(data => this.validateForm());
-    // this.validateForm();
-    //valid
+
+  }
+
+  public onChange(event): void {
+    const questionType = event.target.value;
+    if (questionType == "MCQ") {
+      this.Qtype = true;
+    }
+    else {
+      this.Qtype = false;
+    }
   }
 
   initX() {
@@ -43,40 +45,38 @@ export class QuestionsComponent implements OnInit {
   initY() {
     return this.fb.group({
       'Option': [''],
-      
+      'isCorrect': ['']
+
     })
   }
 
 
-  addX() {
+  addQuestion() {
     const control = <FormArray>this.form.controls['Questions'];
     control.push(this.initX());
   }
 
 
-  addY(ix) {
-    const control = (<FormArray>this.form.controls['Questions']).at(ix).get('Options') as FormArray;
+  addOption(questionindex) {
+    const control = (<FormArray>this.form.controls['Questions']).at(questionindex).get('Options') as FormArray;
     control.push(this.initY());
   }
 
-  RemoveY(ix)
-  {
-    const control = (<FormArray>this.form.controls['Questions']).at(ix).get('Options') as FormArray;
+  RemoveOption(questionindex) {
+    const control = (<FormArray>this.form.controls['Questions']).at(questionindex).get('Options') as FormArray;
     var optionLength = control.length;
     console.log(optionLength);
-    control.removeAt(optionLength-1);
+    control.removeAt(optionLength - 1);
   }
 
-  RemoveX(ix)
-  {
+  RemoveQuestion(questionindex) {
     const control = <FormArray>this.form.controls['Questions'];
-     control.removeAt(ix);
+    control.removeAt(questionindex);
   }
 
 
-  proceedtopreview()
-  {
-    
+  proceedtopreview() {
+
     this.loadComponent = true;
 
   }

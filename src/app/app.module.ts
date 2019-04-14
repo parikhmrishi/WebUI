@@ -20,7 +20,7 @@ import { QuestionsComponent } from './createquiz/questions/questions.component';
 import { ErrorComponent } from './error/error.component';
 import { HeaderComponent } from './header/header.component';
 import { QuizdescComponent } from './createquiz/quizdesc/quizdesc.component';
-import { PreviewComponent } from './createquiz/preview/preview.component'
+import { PreviewComponent } from './createquiz/preview/preview.component';
 
 let config = new AuthServiceConfig([
   {
