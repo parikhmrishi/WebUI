@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { QuestionService } from '../../services/question.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions',
@@ -11,6 +13,7 @@ export class QuestionsComponent implements OnInit {
   Qtype: boolean = true;
   loadComponent: boolean;
   questionCount: number = 1;
+  test = true;
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -18,6 +21,7 @@ export class QuestionsComponent implements OnInit {
         this.initX()
       ])
     });
+    
     console.log(this.form.value);
 
   }
@@ -30,6 +34,11 @@ export class QuestionsComponent implements OnInit {
     else {
       this.Qtype = false;
     }
+  }
+
+  OnCheck(questionindex) {
+    const control = (<FormArray>this.form.controls['Questions']).at(questionindex).get('Options') as FormArray;
+    
   }
 
   initX() {
@@ -47,8 +56,7 @@ export class QuestionsComponent implements OnInit {
   initY() {
     return this.fb.group({
       'Option': [''],
-      'isCorrect': ['']
-
+      'isCorrect': [''],
     })
   }
 
@@ -81,6 +89,11 @@ export class QuestionsComponent implements OnInit {
     
   }
 
+  preview(form: any) {
+    this.questionService.questionAnswerJson(JSON.stringify(form));
+    this.router.navigate(['/createquiz/preview'])
+  }
+
 
   proceedtopreview() {
 
@@ -88,7 +101,7 @@ export class QuestionsComponent implements OnInit {
 
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private questionService: QuestionService, private router : Router) {
 
   }
 

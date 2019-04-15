@@ -9,19 +9,16 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
-  public sidemenu:boolean=false;
-  public displaysidemenu(){
-    if(this.sidemenu==false)
-    {
-      this.sidemenu=true;
+  public sidemenu: boolean = false;
+  public displaysidemenu() {
+    if (this.sidemenu == false) {
+      this.sidemenu = true;
     }
-    else if(this.sidemenu==true)
-    {
-      this.sidemenu=false;
+    else if (this.sidemenu == true) {
+      this.sidemenu = false;
     }
   }
-  public createquiz()
-  {
+  public createquiz() {
     this.router.navigate(['/createquiz/quiz']);
   }
 

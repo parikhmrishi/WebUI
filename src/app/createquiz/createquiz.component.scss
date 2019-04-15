@@ -49,9 +49,6 @@
     border-bottom: 0.5rem solid #8b5ec5;
 }
 
-.notActive {
-  //border: 1px solid #F00;
-}
 ul {
   position: relative;
   top:0.6rem;
@@ -79,8 +76,4 @@ li:hover {
 li:focus {
   border-bottom: 0.5rem solid #8b5ec5;
   color: #8b5ec5;
-}
-
-li:active {
-  background-color: yellow;
 }

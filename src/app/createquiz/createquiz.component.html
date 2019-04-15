@@ -3,15 +3,6 @@
   <div class="box">
     <h1 class="g">Create Quiz </h1>
     <div class="topnav" id="myTopnav">
-      <!-- <div class="nav" >
-        <a classs="active" (click)="quizdescription()" [ngClass]="statusQuiz ? 'active' : 'notActive'">Quiz</a>
-      </div>
-      <div class="nav">
-        <a (click)="questions()" [ngClass]="statusQuestion ? 'active' : 'notActive'">Questions</a>
-      </div>
-      <div class="nav">
-        <a (click)="preview()" [ngClass]="statusPreview ? 'active' : 'notActive'">Preview</a>
-      </div> -->
 
       <ul>
         <li routerLinkActive="active" routerLink="quiz">QUIZ</li>
@@ -21,16 +12,6 @@
 
     </div>
 
-    <!-- <div *ngIf="quizdescriptionshow;">
-      <app-quizdesc></app-quizdesc>
-    </div>
-
-    <div *ngIf="questionshow;">
-      <app-questions></app-questions>
-    </div>
-    <div *ngIf="previewshow;">
-      <app-preview></app-preview>
-    </div> -->
     <router-outlet></router-outlet>
 
   </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionsComponent } from '../questions/questions.component';
+import { QuestionService } from '../../services/question.service'
 
 @Component({
   selector: 'app-preview',
@@ -8,10 +9,12 @@ import { QuestionsComponent } from '../questions/questions.component';
 })
 export class PreviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private questionService: QuestionService) { }
 
-  Quest
+  questionJSON: any;
+
   ngOnInit() {
+    this.questionJSON = this.questionService.getJSON();
   }
 
 }

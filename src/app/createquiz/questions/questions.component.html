@@ -1,34 +1,33 @@
 <form [formGroup]="form">
 	<!-- X -->
 	<div formArrayName="Questions">
-        <div *ngFor="let Question of form['controls'].Questions['controls']; let questionindex=index">
-            <div formGroupName="{{questionindex}}" class="Questions">
-       <input type="text" placeholder="Enter question" formControlName="Question">
-       <select (change)="onChange($event)">
-         <option name ="mcq">MCQ</option>
-         <option name ="maq">MAQ</option>
-       </select>
-                <div formArrayName="Options">
-                    <div *ngFor="let Optionvalue of Question['controls'].Options['controls']; let optionindex=index">
-                        <div formGroupName="{{optionindex}}" class="Options">
-							<input type="radio" *ngIf="Qtype" name="option" />
+		<div *ngFor="let Question of form['controls'].Questions['controls']; let questionindex=index">
+			<div formGroupName="{{questionindex}}" class="Questions">
+				<input type="text" placeholder="Enter question" formControlName="Question">
+				<select (change)="onChange($event)">
+					<option name="mcq">MCQ</option>
+					<option name="maq">MAQ</option>
+				</select>
+				<div formArrayName="Options">
+					<div *ngFor="let Optionvalue of Question['controls'].Options['controls']; let optionindex=index">
+						<div formGroupName="{{optionindex}}" class="Options">
+							<input type="radio" (click)="OnCheck(questionindex)"  *ngIf="Qtype" name="option" />
 							<input type="checkbox" *ngIf="!Qtype" name="option" />
 							<input type="text" placeholder="Enter option" formControlName="Option">
-							<button class="btn" (click)="RemoveOption(questionindex)"><i class="fa fa-trash"></i></button> 
-							<button class="btn" (click)="addOption(questionindex)"><i class="fa fa-plus" aria-hidden="true"></i></button>
-
+							<button class="btn" (click)="RemoveOption(questionindex)"><i class="fa fa-trash"></i></button>
+							<button class="btn" (click)="addOption(questionindex)"><i class="fa fa-plus"
+									aria-hidden="true"></i></button>
 						</div>
 					</div>
-
 				</div>
 
 				<input type="button" (click)="RemoveQuestion(questionindex)" value="Remove Question">
 			</div>
-			
+
 		</div>
 		<input type="button" (click)="addQuestion()" value="Add Question">
 	</div>
-
+	<input type="button" (click)="preview(form.value)" value="Preview">
 	<form>
 
 		<h5>Field Values</h5>

@@ -40,14 +40,15 @@ public addquestions()
     
     this.quiz.numberOfQuestion = quizDescForm.value.noofqstn;
     this.quiz.createdBy = localStorage.getItem("name");
-    this.quiz.startDate = quizDescForm.value.startdate;
+    this.quiz.startDate = (quizDescForm.value.startdate + quizDescForm.value.starttime);
+    console.log(this.quiz.startDate);
     this.quiz.endDate = quizDescForm.value.enddate; 
     // if(this.quiz.startDate <= this.today)
     // alert("Start date should be greater than current");
 
-    // if(!(this.quiz.startDate < this.quiz.endDate))
-    // alert("End date should be greater than start date");
-    // console.log(this.quiz);
+    if(!(this.quiz.startDate < this.quiz.endDate))
+    alert("End date should be greater than start date");
+    console.log(this.quiz);
     this.quizService.PostQuizDetails(this.quiz).subscribe(()=> this.router.navigate(['question']));
 
   } 
