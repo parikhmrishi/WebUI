@@ -52,3 +52,35 @@
 .notActive {
   //border: 1px solid #F00;
 }
+ul {
+  position: relative;
+  top:0.6rem;
+  right:2.5rem;
+}
+
+ul li {
+  display: inline;
+  text-align: center;
+}
+
+li {
+  padding: 0 14.5%;
+}
+
+li:focus {
+  outline: none;
+}
+
+li:hover {
+  border-bottom: 0.5rem solid #8b5ec5;
+  color: #8b5ec5;
+}
+
+li:focus {
+  border-bottom: 0.5rem solid #8b5ec5;
+  color: #8b5ec5;
+}
+
+li:active {
+  background-color: yellow;
+}

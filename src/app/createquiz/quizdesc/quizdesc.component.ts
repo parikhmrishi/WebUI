@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Quiz } from 'src/app/model/Quiz';
 import { QuizService } from 'src/app/services/quizdetails.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quizdesc',
@@ -22,13 +23,14 @@ public addquestions()
 {
 
 }  
-  constructor(private quizService : QuizService) { }
+  constructor(private quizService : QuizService, private router: Router) { }
 
   ngOnInit() {
     this.today = new Date(this.today);
     console.log(this.today);
   }
   today:Date;
+  dt = new Date();
 
   onSubmit(quizDescForm) {
     console.log(quizDescForm.value);
@@ -40,13 +42,13 @@ public addquestions()
     this.quiz.createdBy = localStorage.getItem("name");
     this.quiz.startDate = quizDescForm.value.startdate;
     this.quiz.endDate = quizDescForm.value.enddate; 
-    if(this.quiz.startDate >= this.today)
-    alert("Start date should be greater than current");
+    // if(this.quiz.startDate <= this.today)
+    // alert("Start date should be greater than current");
 
-    if(!(this.quiz.startDate < this.quiz.endDate))
-    alert("End date should be greater than start date");
-    console.log(this.quiz);
-    this.quizService.PostQuizDetails(this.quiz).subscribe((res)=>console.log("res"));
+    // if(!(this.quiz.startDate < this.quiz.endDate))
+    // alert("End date should be greater than start date");
+    // console.log(this.quiz);
+    this.quizService.PostQuizDetails(this.quiz).subscribe(()=> this.router.navigate(['question']));
 
   } 
 

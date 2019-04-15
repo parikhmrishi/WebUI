@@ -9,7 +9,8 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 export class QuestionsComponent implements OnInit {
   form: FormGroup;
   Qtype: boolean = true;
-  loadComponent: boolean
+  loadComponent: boolean;
+  questionCount: number = 1;
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -40,6 +41,7 @@ export class QuestionsComponent implements OnInit {
         this.initY()
       ])
     });
+    
   }
 
   initY() {
@@ -54,6 +56,8 @@ export class QuestionsComponent implements OnInit {
   addQuestion() {
     const control = <FormArray>this.form.controls['Questions'];
     control.push(this.initX());
+    this.questionCount++;
+    console.log(this.questionCount);
   }
 
 
@@ -72,6 +76,9 @@ export class QuestionsComponent implements OnInit {
   RemoveQuestion(questionindex) {
     const control = <FormArray>this.form.controls['Questions'];
     control.removeAt(questionindex);
+    this.questionCount--;
+    console.log(this.questionCount);
+    
   }
 
 

@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   }
   public createquiz()
   {
-    this.router.navigate(['/createquiz']);
+    this.router.navigate(['/createquiz/quiz']);
   }
 
   ngOnInit() {

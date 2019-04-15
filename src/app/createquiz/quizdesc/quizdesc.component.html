@@ -31,7 +31,10 @@
                   StartDate:
               </td>
               <td>
-                  <input type="date" [(ngModel)]="StartDate" name="startdate" placeholder = "mm/dd/yyyy" required>
+                  <!-- <input type="date" [(ngModel)]="StartDate" name="startdate" placeholder = "mm/dd/yyyy" required 
+                  > -->
+                  <input type="date" [ngModel] ="StartDate | date:'MM-dd-yyyy'" >
+      {{dt| date:'MM-dd-yyyy'}}
               </td>
           <tr>
   
@@ -39,12 +42,12 @@
                   EndDate:
               </td>
               <td>
-                  <input type="date" id = "test" [(ngModel)]="EndDate" name="enddate" required>
+                  <input type="date" id = "test" [(ngModel)]="EndDate" name="enddate" placeholder = "mm/dd/yyyy" required>
               </td>
           </tr>
           <tr>
               <td colspan="2" class = "text-center">
-                  <input type="submit" value=" + Add Quiz" onclick="addquestions()">
+                  <input type="submit" value=" + Add Quiz">
               </td>
           </tr>
       </table>
