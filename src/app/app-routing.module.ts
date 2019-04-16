@@ -18,6 +18,7 @@ const routes: Routes = [
       { path: 'quiz', component: QuizdescComponent },
       { path: 'question', component: QuestionsComponent },
       { path: 'preview', component: PreviewComponent },
+     // { path: '/createQuiz/question', component: QuestionsComponent },
     ]
   },
   { path: 'questions', component: QuestionsComponent },

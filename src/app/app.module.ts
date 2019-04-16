@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { HttpClientModule } from '@angular/common/http'
 

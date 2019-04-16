@@ -19,6 +19,21 @@
    .Options{
      border: #8b5ec5 solid 1px;
    }
+
+   .back {
+    position: relative;
+    bottom: 5rem; 
+    left:0.4rem;
+
+}
+
+.float_right {
+  background-color: #8b5ec5;
+  color:#FFF;
+  float: right;
+  border-radius: 10px;
+  padding: 0.2rem 0.5rem;
+}
    
   
    input[value="Add Question"]{

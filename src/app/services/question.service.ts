@@ -21,4 +21,11 @@ export class QuestionService {
   getJSON() {
       return this.questionObject;
   }
+
+  POSTQuestionAnswer()
+  {
+    
+  }
+
+  
 }
