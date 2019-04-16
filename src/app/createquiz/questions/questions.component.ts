@@ -36,9 +36,7 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
-  OnCheck(e,questionindex) {
-    console.log(e);
-    
+  OnCheck(questionindex) {
     const control = (<FormArray>this.form.controls['Questions']).at(questionindex).get('Options') as FormArray;
     
   }
@@ -93,7 +91,7 @@ export class QuestionsComponent implements OnInit {
 
   preview(form: any) {
     this.questionService.questionAnswerJson(JSON.stringify(form));
-    this.router.navigate(['/createquiz/preview']);
+    this.router.navigate(['/createquiz/preview'])
   }
 
 

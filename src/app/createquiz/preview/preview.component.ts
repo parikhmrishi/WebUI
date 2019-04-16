@@ -17,8 +17,12 @@ export class PreviewComponent implements OnInit {
 
   ngOnInit() {
     this.questionJSON = this.questionService.getJSON();
-    console.log(this.questionJSON.Questions.Questions.Options.Option.value);
+    //console.log(JSON.parse(this.questionJSON));
   }
 
+  back() {
+    this.router.navigateByUrl[' '];
+  
+  }
 }
 

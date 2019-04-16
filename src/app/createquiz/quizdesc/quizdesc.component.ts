@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Quiz } from 'src/app/model/Quiz';
 import { QuizService } from 'src/app/services/quizdetails.service';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-quizdesc',
@@ -27,16 +26,15 @@ public addquestions()
   constructor(private quizService : QuizService, private router: Router) { }
 
   ngOnInit() {
-    console.log(this.router.url);
     this.today = new Date(this.today);
     console.log(this.today);
-    
+
   }
   today:Date;
   dt = new Date();
 
   onSubmit(quizDescForm) {
- 
+    console.log(quizDescForm.value);
     
     this.quiz.name = quizDescForm.value.title;
     this.quiz.description = quizDescForm.value.description;
@@ -52,8 +50,7 @@ public addquestions()
     if(!(this.quiz.startDate < this.quiz.endDate))
     alert("End date should be greater than start date");
     console.log(this.quiz);
-    this.quizService.PostQuizDetails(this.quiz).subscribe((data) => this.router.navigate(['createquiz/question']),
-    (err: any) => alert("Bad Request"));
+    this.quizService.PostQuizDetails(this.quiz).subscribe(()=> this.router.navigate(['question']));
 
   } 
 
