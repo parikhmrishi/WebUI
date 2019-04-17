@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class QuestionService {
 
-    questionObject: any;
+    questionObject: JSON;
 
   constructor(private http: HttpClient) {
 
@@ -16,9 +16,15 @@ export class QuestionService {
 
   questionAnswerJson(questionObject:any) : void {
       this.questionObject = questionObject;
-    console.log(questionObject);
   }
   getJSON() {
       return this.questionObject;
   }
+
+  POSTQuestionAnswer()
+  {
+    
+  }
+
+  
 }

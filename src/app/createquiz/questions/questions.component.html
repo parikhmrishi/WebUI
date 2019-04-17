@@ -1,4 +1,4 @@
-<input type="button" class="back" routerLink="/createquiz/quiz" name="Back" value="Back" />
+<button class="back" routerLink="/createquiz/quiz"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</button>
 <form [formGroup]="form">
 	<!-- X -->
 	<div formArrayName="Questions">
@@ -12,7 +12,7 @@
 				<div formArrayName="Options">
 					<div *ngFor="let Optionvalue of Question['controls'].Options['controls']; let optionindex=index">
 						<div formGroupName="{{optionindex}}" class="Options">
-							<input type="radio" (click)="OnCheck(questionindex)" *ngIf="Qtype" name="option" />
+							<input type="radio" (click)="OnCheck(Optionvalue,questionindex)" *ngIf="Qtype" [value]="1" formControlName="isCorrect" />
 							<input type="checkbox" *ngIf="!Qtype" name="option" />
 							<input type="text" placeholder="Enter option" formControlName="Option">
 							<button class="btn" (click)="RemoveOption(questionindex)"><i
@@ -27,9 +27,11 @@
 			</div>
 
 		</div>
+		<input type="button" class ="float_right" (click)="preview(form.value)" value="Preview">
 		<input type="button" (click)="addQuestion()" value="Add Question">
+		
 	</div>
-	<input type="button" (click)="preview(form.value)" value="Preview">
+
 	<form>
 
 

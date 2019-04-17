@@ -5,9 +5,9 @@
     <div class="topnav" id="myTopnav">
 
       <ul>
-        <li routerLinkActive="active" >QUIZ</li>
-        <li routerLinkActive="active" >QUESTION</li>
-        <li routerLinkActive="active" >PREVIEW</li>
+        <li [ngClass]="statusQuiz ? 'active' : 'notActive'">QUIZ</li>
+        <li [ngClass]="statusQuestion ? 'active' : 'notActive'" >QUESTION</li>
+        <li [ngClass]="statusPreview ? 'active' : 'notActive'" >PREVIEW</li>
       </ul>
 
     </div>

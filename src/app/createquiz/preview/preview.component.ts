@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionsComponent } from '../questions/questions.component';
 import { QuestionService } from '../../services/question.service'
 import { Router } from '@angular/router';
-import { HttpBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-preview',
@@ -13,16 +11,15 @@ export class PreviewComponent implements OnInit {
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
-  questionJSON: any;
+  questionJSON: JSON;
+  arrCase = [1,2,3,4];
+  Questions : object [];
+  Answers :  string[] ;
 
   ngOnInit() {
     this.questionJSON = this.questionService.getJSON();
-    //console.log(JSON.parse(this.questionJSON));
+    //console.log(this.questionJSON["Questions"]);
   }
 
-  back() {
-    this.router.navigateByUrl[' '];
-  
-  }
 }
 

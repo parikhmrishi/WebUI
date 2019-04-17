@@ -24,13 +24,14 @@ export class DataService {
 
   setUser(id: any, name: string, email: string) {
 
-    this.http.post(this.apiurl, {
+    return this.http.post(this.apiurl, {
       "Id": id,
       "Name": name,
       "Email": email,
       "roleId": 2
      
-  }).subscribe(res => console.log(res));
+  }).subscribe(res => console.log(res)),
+  (err: any) => alert("Bad Request");
   }
 
 }

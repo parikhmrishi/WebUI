@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-createquiz',
@@ -7,11 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatequizComponent implements OnInit {
 
-
-  constructor() { }
+  statusQuiz:boolean;
+  statusQuestion:boolean;
+  statusPreview:boolean;
+  constructor(private router:Router) { }
 
   ngOnInit() {
-
+    if(this.router.url == "/createquiz/quiz")
+    {
+      this.statusQuiz = environment.statusQuiz;
+    }
+    if(this.router.url == "/createquiz/question")
+    {
+      this.statusQuestion = environment.statusQuestion;
+    }
+    if(this.router.url == "/createquiz/preview")
+    {
+      this.statusPreview = environment.statusPreview;
+    }
   }
 
 
